@@ -1,0 +1,22 @@
+Ito serveur ito dia nanomboka namboarina tamin'ny 27 Novembre 2024
+
+27 Novembre 2024
+- Ny etape voalohany natao dia nicree serveur tamleh ServerSocket
+
+28 Novembre 2024
+- Ny etape faharoa natao dia nanao gestion anleh client mba ahatonga anleh client ho multithreading
+- Nanapoitra anleh contenu html anleh navigateur
+- Namaky fichier static tamn navigateur
+
+12 Décembre 2024
+- Naverina ilay code rehetra mba himaitrisena anazy tsara
+- Famerenana code vao2 izay manaraka todoliste tsara
+
+17 Décembre 2024
+- Niverinana nanambotra fonction vaovao satria tsy nety namaky fichier binaire ilay taloha
+- Nanao css anleh serveur
+
+18 Décembre 2024
+- Mbola nifampitady tamin'ilay oe raha misy index ao anatilay dossier dia tonga idirany
+    - tapakandro tontolo nitady anleh olana kay ny olona dia tsy ampy slash fotsiny ilay lien anleh dossier XD
+- Azo lazaina oe vita leh projet satria vita daoli leh fonctionnalite nangatahana

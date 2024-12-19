@@ -1,0 +1,26 @@
+[ ] Serveur Web
+    [ ] : Creation serveur Web
+        [x] : creation d'une serveurSocke:
+        [x] : gestion des clients en Thread
+        [x] : recuperation de donne necessaire dans un fichier comme port, racine de projet
+        [ ] : affichage cote navigateur
+            [x] : Gestion des reponseHttp
+                [x] : Status 200
+                [x] : Erreur Interne De serveur
+                [x] : Erreur 404
+            [x] : afficher un tout premier contenu html dans le navigateur
+            [x] : affichage fichier static ex: test.html
+            [ ] : lecture d'une image
+            [ ] : affichage dans le racine de serveur
+            [ ] : recherche d'un index sur dans un dossier
+        [ ] : interpretation php avec ProcessBuilder
+            [ ] : interpretation simple
+            [ ] : interpretation avec des methodes
+                [ ] : lecture des donnes get ou post
+                [ ] : interpretation avance avec (php -r)
+                [ ] : teste avec les donnes get ou post
+            [ ] : interpretation avec une session
+                [ ] : recuperation de l'id de session
+                [ ] : fait marcher le script avec les sessions
+        [ ] : style de serveur
+    [ ] : Maitrise du code
