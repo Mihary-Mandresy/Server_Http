@@ -39,20 +39,9 @@ public class Serveur {
 
     // $ Fonction tsotra
 
-        /**
-         * Mamafa fichier de session rah ohtra ka miexiste ilay izy
-         */
-        public static void clearSession() {
-            File fl = new File("/var/lib/php/sessions/sess_sess");
-            if (fl.exists()) {
-                fl.delete();
-            }
-        }
-
         public static String rootWithSlash() {
             return root + "/";
         }
-
 
         /**
          * Manao initialisation anleh configuration anleh serveur mihintsy, ilay avy any anaty fichier (serveur.conf ohatra)

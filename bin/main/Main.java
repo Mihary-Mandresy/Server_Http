@@ -15,13 +15,7 @@ public class Main {
     
     public static void main(String[] args) {
         try {
-            // ! raha sendra stoppena force ilay serveur ohatra atao control + C
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                Serveur.clearSession();
-            }));
-
-            Serveur ser = new Serveur();
-
+            new Serveur();
         } catch (Exception e) {
             e.printStackTrace();
         }

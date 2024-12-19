@@ -24,7 +24,6 @@ public class ExitHandler implements Runnable {
                 // ! oe raha manao manoratra exit sur terminal dia vonona ilay serveur
                 if (sysInp.readLine().trim().equalsIgnoreCase("exit")) {
                     srv.close();
-                    Serveur.clearSession();
                     break;
                 }
             }

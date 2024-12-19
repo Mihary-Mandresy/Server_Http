@@ -77,9 +77,9 @@ public class HandlerPhpData {
             if (splt.length == 2) {
                 data = splt[1];
             }
-            cmd.add("if (session_id('sess') == null) { session_id('sess'); } parse_str('" + data + "', $_GET); " + include + ";");
+            cmd.add("parse_str('" + data + "', $_GET); " + include + ";");
         } else if (methode.equals("POST")) {
-            cmd.add("if (session_id('sess') == null) { session_id('sess'); } parse_str('" + postData + "', $_POST); " + include + ";"); 
+            cmd.add("parse_str('" + postData + "', $_POST); " + include + ";");
         }
 
         return ResponseHTTP.response200(readByProcessBuilder(cmd), getRealPath());
