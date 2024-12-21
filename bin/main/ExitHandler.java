@@ -25,6 +25,9 @@ public class ExitHandler implements Runnable {
                 if (sysInp.readLine().trim().equalsIgnoreCase("exit")) {
                     srv.close();
                     break;
+                } else if (sysInp.readLine().trim().equalsIgnoreCase("conf")) {
+                    Serveur.editConfig();
+                    System.out.println("oui");
                 }
             }
         } catch (Exception e) {

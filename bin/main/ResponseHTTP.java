@@ -58,7 +58,7 @@ public class ResponseHTTP {
         return entete + body;
     }
 
-    public static String error500() {
+    public static String error500(String errMessage) {
         String body = "<!DOCTYPE html>\n" + //
         "   <html lang=\"en\">\n" + //
         "   <head>\n" + //
@@ -67,7 +67,7 @@ public class ResponseHTTP {
         "   </head>\n" + //
         "   <body>\n" + //
         "       <h1>500 - Internal Server Error</h1>\n" + //
-        "       <p>Something went wrong on our end. Please try again later.</p>\n" + //
+        "       <p>" + errMessage +"</p>\n" + //
         "   </body>\n" + //
         "</html>\n";
 

@@ -19,6 +19,7 @@ public class Serveur {
     public static String root;
     private ServerSocket server;
     public static  String racineDeProjet;
+    public static boolean activationPhp;
 
     // ? Constructeur
 
@@ -39,6 +40,13 @@ public class Serveur {
 
     // $ Fonction tsotra
 
+
+    public static void editConfig() throws Exception {
+        ProcessBuilder process = new ProcessBuilder("gedit",  "../../conf/serveur.conf");
+        Process prs = process.start();
+        prs.waitFor();
+    }
+
         public static String rootWithSlash() {
             return root + "/";
         }
@@ -52,6 +60,7 @@ public class Serveur {
         private void initConfig(HashMap<String, String> map) throws Exception {
             try {
                 this.port = Integer.parseInt(map.get("port"));
+                this.activationPhp = Boolean.parseBoolean(map.get("php"));
 
                 File fl = new File(racineDeProjet + map.get("root"));
 

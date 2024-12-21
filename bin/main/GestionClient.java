@@ -89,6 +89,7 @@ public class GestionClient implements Runnable {
                             dt.manomeReponse();
                             return;
                         } else if (el.getName().equalsIgnoreCase("index.php")) { // ! si php
+                            chechActivation();
                             HandlerPhpData dataPhp = new HandlerPhpData(el.getPath());
                             out.println(dataPhp.giveDataPhp(methode, getPostData(in)));
                             return;
@@ -100,6 +101,7 @@ public class GestionClient implements Runnable {
                 // ! miafficher anleh contenue tokony apoitra any amin'ny navigateur
 
                 if (getRealPath().endsWith(".php")) { // ! si php
+                    chechActivation();
                     HandlerPhpData phpData = new HandlerPhpData(path);
                     out.println(phpData.giveDataPhp(methode, getPostData(in)));
                 } else { // ! si autre fichier
@@ -115,7 +117,7 @@ public class GestionClient implements Runnable {
                 log.errLog(clientSocket.getInetAddress().getHostAddress(), e.getMessage());
                 throw e;
             } catch (Exception e) {
-               out.println( ResponseHTTP.error500());
+               out.println( ResponseHTTP.error500(e.getMessage()));
                log.errLog(clientSocket.getInetAddress().getHostAddress(), e.getMessage());
                throw e;
             }
@@ -123,5 +125,9 @@ public class GestionClient implements Runnable {
             System.out.println("Erreur : " + e.getMessage());
             // e.printStackTrace();
         }
+    }
+
+    private void chechActivation() throws Exception {
+        if (!Serveur.activationPhp) throw new Exception("Le serveur ne peut pas interpreter des scripts php");
     }
 }
