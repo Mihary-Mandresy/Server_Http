@@ -129,7 +129,7 @@ public class Serveur {
                 thread.start();
             }
         } catch (SocketException e) {
-            System.out.println("Server closed");
+            System.out.println("Server closed : " + e.getMessage());
         } catch (IOException e) {
             System.err.println("Erreur du serveur : " + e.getMessage());
             // e.printStackTrace();
