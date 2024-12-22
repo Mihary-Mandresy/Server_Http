@@ -31,10 +31,6 @@ public class HandlerData {
 
     // $ Fonction tsotra
 
-            private boolean equalsRoot() {
-                return Serveur.root.equals(pathFicher);
-            }
-
             private boolean equalsRootWithSlash() {
                 return Serveur.rootWithSlash().equals(pathFicher);
             }

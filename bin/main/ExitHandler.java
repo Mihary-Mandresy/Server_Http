@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 
 import server.Serveur;
+import server.frame.ConfigHandler;
 
 public class ExitHandler implements Runnable {
 
@@ -27,9 +28,7 @@ public class ExitHandler implements Runnable {
                     srv.close();
                     break;
                 } else if (mess.equalsIgnoreCase("conf")) {
-                    Serveur.editConfig();
-                    srv.close();
-                    System.out.println("Il faut redemarrer le serveur");
+                    new ConfigHandler();
                     break;
                 }
             }
