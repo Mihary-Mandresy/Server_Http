@@ -35,8 +35,9 @@ public class Serveur {
     }
 
     private void definirRacineDeProjet() throws Exception {
-        String rt = System.getProperty("user.dir");
-        racineDeProjet =  rt.substring(0, rt.length() - 9);
+        // String rt = System.getProperty("user.dir");
+        racineDeProjet = "/opt/apachemv";
+        // racineDeProjet =  rt.substring(0, rt.length() - 9);
     }
 
     // $ Fonction tsotra
@@ -72,6 +73,7 @@ public class Serveur {
                 }
 
             } catch (Exception e) {
+                e.printStackTrace();
                 throw new Exception("Verifier bien votre fichier de configuration");
             }
         }
@@ -81,7 +83,7 @@ public class Serveur {
      * @throws Exception
      */
     private void getDataInFile() throws Exception {
-        File fl = new File("../../conf/serveur.conf");
+        File fl = new File("/etc/httpServer/serveur.conf");
         if (!fl.exists()) throw new Exception("Le fichier de configuration doit a sa place");
         
         try (FileReader rd = new FileReader(fl);
