@@ -28,6 +28,9 @@ public class ExitHandler implements Runnable {
                     break;
                 } else if (mess.equalsIgnoreCase("conf")) {
                     Serveur.editConfig();
+                    srv.close();
+                    System.out.println("Il faut redemarrer le serveur");
+                    break;
                 }
             }
         } catch (Exception e) {
