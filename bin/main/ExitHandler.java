@@ -21,13 +21,13 @@ public class ExitHandler implements Runnable {
     public void run() {
         try (BufferedReader sysInp = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
+                String mess = sysInp.readLine().trim();
                 // ! oe raha manao manoratra exit sur terminal dia vonona ilay serveur
-                if (sysInp.readLine().trim().equalsIgnoreCase("exit")) {
+                if (mess.equalsIgnoreCase("exit")) {
                     srv.close();
                     break;
-                } else if (sysInp.readLine().trim().equalsIgnoreCase("conf")) {
+                } else if (mess.equalsIgnoreCase("conf")) {
                     Serveur.editConfig();
-                    System.out.println("oui");
                 }
             }
         } catch (Exception e) {

@@ -61,7 +61,7 @@ public class Serveur {
         private void initConfig(HashMap<String, String> map) throws Exception {
             try {
                 this.port = Integer.parseInt(map.get("port"));
-                this.activationPhp = Boolean.parseBoolean(map.get("php"));
+                activationPhp = Boolean.parseBoolean(map.get("php"));
 
                 File fl = new File(racineDeProjet + map.get("root"));
 
@@ -117,7 +117,7 @@ public class Serveur {
             Thread exit = new Thread(new ExitHandler(server));
             exit.start();
 
-            while (true) {
+            while (!serverSocket.isClosed()) {
                 Socket clientSocket = serverSocket.accept(); // ! maka anilay client izay acceptenleh server
                 // ! manambotra objet de type GestionClient mba mora higerena anleh client
                 GestionClient clientHandler = new GestionClient(clientSocket);
