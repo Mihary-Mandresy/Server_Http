@@ -11,13 +11,14 @@ import server.Serveur;
 import java.io.*;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         try {
             new Serveur();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         // Spécifiez le fichier à ouvrir avec nano
         // String fileName = "start.sh";
 
@@ -28,14 +29,14 @@ public class Main {
         // processBuilder.inheritIO();
 
         // try {
-        //     // Démarrer le processus
-        //     Process process = processBuilder.start();
+        // // Démarrer le processus
+        // Process process = processBuilder.start();
 
-        //     // Attendre que le processus se termine (fermeture de nano)
-        //     int exitCode = process.waitFor();
-        //     System.out.println("Nano a quitté avec le code : " + exitCode);
+        // // Attendre que le processus se termine (fermeture de nano)
+        // int exitCode = process.waitFor();
+        // System.out.println("Nano a quitté avec le code : " + exitCode);
         // } catch (IOException | InterruptedException e) {
-        //     e.printStackTrace();
+        // e.printStackTrace();
         // }
 
     }

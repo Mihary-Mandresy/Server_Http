@@ -20,6 +20,7 @@ public class Serveur {
     private ServerSocket server;
     public static  String racineDeProjet;
     public static boolean activationPhp;
+    public static String dirSeparator = System.getProperty("file.separator");
 
     // ? Constructeur
 
@@ -42,13 +43,13 @@ public class Serveur {
 
 
     public static void editConfig() throws Exception {
-        ProcessBuilder process = new ProcessBuilder("gedit",  "../../conf/serveur.conf");
+        ProcessBuilder process = new ProcessBuilder("gedit",  ".." + dirSeparator + ".." + dirSeparator + "conf" + dirSeparator + "serveur.conf");
         Process prs = process.start();
         prs.waitFor();
     }
 
         public static String rootWithSlash() {
-            return root + "/";
+            return root + dirSeparator;
         }
 
         /**

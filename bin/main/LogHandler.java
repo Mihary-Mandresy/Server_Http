@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
 
 public class LogHandler {
 
-    private File accsFl = new File("../../log/acces.log");
-    private File errFile = new File("../../log/err.log");
+    private File accsFl = new File(".." + Serveur.dirSeparator + ".." + Serveur.dirSeparator + "log" + Serveur.dirSeparator + "acces.log");
+    private File errFile = new File(".." + Serveur.dirSeparator + ".." + Serveur.dirSeparator + "log" + Serveur.dirSeparator + "err.log");
 
     private String omeoIp(String host)  {
         if (host.equals("0:0:0:0:0:0:0:1")) {
