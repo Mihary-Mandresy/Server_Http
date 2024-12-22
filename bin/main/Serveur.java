@@ -1,17 +1,22 @@
 package server;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.Vector;
 
 import client.GestionClient;
+import server.frame.ConfigHandler;
 
 public class Serveur {
 
@@ -30,23 +35,38 @@ public class Serveur {
 
     private void inConstructeur() throws Exception {
         definirRacineDeProjet();
-        getDataInFile();
+        initConfig(getDataInFile());
         initServer();
     }
 
     private void definirRacineDeProjet() throws Exception {
-        // String rt = System.getProperty("user.dir");
         racineDeProjet = "/opt/apachemv";
-        // racineDeProjet =  rt.substring(0, rt.length() - 9);
     }
 
     // $ Fonction tsotra
 
+    public static void editConfig(HashMap<String, String> mapy) {
+        File fl = new File("/etc/httpServer/serveur.conf");
 
-    public static void editConfig() throws Exception {
-        ProcessBuilder process = new ProcessBuilder("gedit",  ".." + dirSeparator + ".." + dirSeparator + "conf" + dirSeparator + "serveur.conf");
-        Process prs = process.start();
-        prs.waitFor();
+        try (
+                FileWriter writer = new FileWriter(fl);
+                BufferedWriter wrt = new BufferedWriter(writer)
+            ) {
+                
+            Set<String> key = mapy.keySet();
+            int cpt = 0;
+
+            for (String k : key) {
+                wrt.write(k + " = " + mapy.get(k));
+                if (cpt != key.size() - 1) {
+                    wrt.newLine();
+                }
+                cpt++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
         public static String rootWithSlash() {
@@ -82,7 +102,7 @@ public class Serveur {
      * Maka anilay configuration rehetra any anaty fichier de configuration (../../conf/serveur.conf)
      * @throws Exception
      */
-    private void getDataInFile() throws Exception {
+    public static HashMap<String, String> getDataInFile() throws Exception {
         File fl = new File("/etc/httpServer/serveur.conf");
         if (!fl.exists()) throw new Exception("Le fichier de configuration doit a sa place");
         
@@ -98,8 +118,7 @@ public class Serveur {
             }
 
             // ! Ato no miantso anlilay fonction iniConfig mba initialisena anilay configuration ka omena anilay objet map
-            initConfig(map);
-
+            return map;
         } catch (Exception e) {
             throw e;
         }
@@ -109,7 +128,7 @@ public class Serveur {
      * Initialisation anleh serveur rah efa azo daoly leh configuration necessaire
      * Izany oe ao zany no mamelona anleh serveur sy manao anleh gestion miger anleh Thread anleh client 
      */
-    private void initServer() {
+    private void initServer() throws Exception {
         System.out.println("Serveur en cours de démarrage...");
         // ! initalisation du serveur socket
         try (ServerSocket serverSocket = new ServerSocket(port)) {

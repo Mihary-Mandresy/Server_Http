@@ -71,12 +71,7 @@ public class GestionClient implements Runnable {
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream())) {
             try {
                 initClient(in.readLine());
-            
-                // String line;
-                // while ((line = in.readLine()) != null && !line.isEmpty()) {
-                //     System.out.println(line);
-                // 
-
+                
                 File fl = new File(path);
 
                 // ! mijery raha oe directory izy no miditra dia verifiena rah misy index ao dia hidirana
